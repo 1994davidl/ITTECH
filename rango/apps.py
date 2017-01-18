@@ -5,3 +5,5 @@ from django.apps import AppConfig
 
 class RangoConfig(AppConfig):
     name = 'rango'
+
+#comment to check if git works.
