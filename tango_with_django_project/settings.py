@@ -15,6 +15,20 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+#calling os.path.dirname() removes another layer so that BASE_DIR coontains h:/tango_with_django_project/
+print(__file__)
+print(os.path.dirname(__file__))
+print(os.path.dirname(os.path.dirname(__file__)))
+
+#Create a new varaible called TEMPLATE_DIR that will reference your new template director
+#make use of os.path.join() to mash together the base_DIR method variable and templates
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+#Create a new variable called STATIC_DIR at the top of settings.py preferably underneath BASE_DIR and templates_DIR
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -55,7 +69,8 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #Update the DIRs key/value pairing
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
