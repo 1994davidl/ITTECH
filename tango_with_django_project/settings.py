@@ -27,6 +27,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 #Create a new variable called STATIC_DIR at the top of settings.py preferably underneath BASE_DIR and templates_DIR
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
+#Create a new variables for media files
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -78,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -130,7 +133,18 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
+#Add two more variables, the root and URL
+MEDIA_ROOT = MEDIA_DIR
 
+MEDIA_URL = '/media/'
+
+
+
+
+# Static files (CSS, JavaScript, Images)
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+
+
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 STATIC_URL = '/static/'

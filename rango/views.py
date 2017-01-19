@@ -13,4 +13,5 @@ def index(request):
 
 #Create a new view method called about which return the below Http response
 def about(request):
-    return HttpResponse("Rango says here is the about page <a href=' /rango/'>Index</a>")
+    return render(request, 'rango/about.html')
+    #return HttpResponse("Rango says here is the about page <a href=' /rango/'>Index</a>")
