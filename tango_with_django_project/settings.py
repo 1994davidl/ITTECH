@@ -16,9 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #calling os.path.dirname() removes another layer so that BASE_DIR coontains h:/tango_with_django_project/
-print(__file__)
-print(os.path.dirname(__file__))
-print(os.path.dirname(os.path.dirname(__file__)))
+#print(__file__)
+#print(os.path.dirname(__file__))
+#print(os.path.dirname(os.path.dirname(__file__)))
 
 #Create a new varaible called TEMPLATE_DIR that will reference your new template director
 #make use of os.path.join() to mash together the base_DIR method variable and templates
@@ -135,7 +135,6 @@ USE_TZ = True
 
 #Add two more variables, the root and URL
 MEDIA_ROOT = MEDIA_DIR
-
 MEDIA_URL = '/media/'
 
 

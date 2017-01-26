@@ -17,35 +17,35 @@ def populate():
         python_pages = [
             {"title": "Official Python Tutorial",
              "url": "http://doc.python.org/2/tutorial/",
-             "view": 0},
+             "views": 100},
             {"title": "How To Think like a Computer Scientist",
              "url": "http://www.greenteapress.com/thinkpython/",
-             "view": 0},
+             "views": 9},
             {"title":"Learn Python in 10 minutes",
              "url": "http://www.korokithakis.net/tutorials/python/",
-             "view": 0} ]
+             "views": 10} ]
 
         django_pages = [
             {"title": "Official Django Tutorial",
              "url": "https://docs.djangoproject.com/en/1.9/intro/tutorial01/",
-             "view": 0},
+             "views": 20},
             {"title": "Django Rocks",
              "url": "http://www.djangorocks.com/",
-            "view":0},
+            "views":40},
             {"title":"How to Tango with Django",
              "url": "http://www.tangowithdjango.com/",
-            "view": 0}]
+            "views": 50}]
 
         other_pages =[
             {"title":"Bottle",
              "url":"http://bottlepy.org/docs/dev/",
-            "view":0},
+            "views":60},
             {"title":"Flask",
              "url":"http://flask.pocoo.org",
-             "view": 0} ]
+             "views": 70} ]
 
         cats = {"Python": {"pages": python_pages, "views": 128, "likes": 64},
-                "Django": {"pages": django_pages, "views": 32, "likes":32},
+                "Django": {"pages": django_pages, "views": 64, "likes":32},
                 "Other Frameworks": {"pages": other_pages, "views": 32, "likes": 16}  }
 
         #If you want to add more categories or pages,
@@ -56,7 +56,7 @@ def populate():
         #if you are using python 2.x then use cats.iteritems()
 
         for cat, cat_data in cats.items():
-            c = add_cat(cat)
+            c = add_cat(cat, cat_data["views"], cat_data["likes"])
             for p in cat_data["pages"]:
                 add_page(c,p["title"], p["url"], p["views"])
 
