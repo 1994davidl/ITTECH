@@ -12,6 +12,7 @@
                 <ul>
                     {% for page in pages %}
                         <li><a href="{{ page.url }}">{{ page.title}}</a></li>
+
                     {% endfor %}
                 </ul>
             {% else %}
@@ -20,7 +21,12 @@
         {% else %}
             the specified category does not exist
         {% endif %}
-        <a href=' /rango/'>Home Page</a>
+        <div>
+            {% if category %}
+            <a href="/rango/category/{{category.slug}}/add_page/">Add Page</a> <br />
+            {% endif %}
+        </div>
+        <a href=' /rango/'>Index</a>
     </div>
 </body>
 </html>
