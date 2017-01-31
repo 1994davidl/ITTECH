@@ -1,6 +1,22 @@
-<!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
+
+{% block title_block %}
+    About
+{% endblock %}
+
+{% block body_block %}
+    <div>
+        <h1>About Page</h1>
+        This tutorial has been put together by David Law
+    </div>
+         <img src ="{{MEDIA_URL}}cat.jpg" alt="Picture of a Cat">
+
+{% endblock %}
+
+<!--Remove the links from the about html --->
+
+<!-- Before Amendments from Chapter 8
 
 <html lang="en">
 <head>
@@ -14,7 +30,7 @@
         </h1>
 
     <div>This tutorial has been put together by David Law<br/>
-             <img src ="{{MEDIA_URL}}cat.jpg" alt="Picture of a Cat"> <!--new line -->
+             <img src ="{{MEDIA_URL}}cat.jpg" alt="Picture of a Cat">
     </div>
 </body>
-</html>
+</html>  -->

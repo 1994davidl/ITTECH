@@ -102,8 +102,12 @@ def index(request):
 
 #Create a new view method called about which return the below Http response
 def about(request):
-    return render(request, 'rango/about.html')
-    #return HttpResponse("Rango says here is the about page <a href=' /rango/'>Index</a>")
+    #print out whether the method is GET or a POST
+    print(request.method)
+    #print out the user name, if no one is logged in it prints 'AnonymousUser'
+    print(request.user)
+    return render(request, 'rango/about.html', {})
+    #return HttpResponse('Rango says here is the about page <a href="/rango/">Index</a')
 
 
 def register(request):

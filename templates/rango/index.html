@@ -1,6 +1,59 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Index
+{% endblock %}
+
+{% block body_block %}
+        <h1>Rango says...</h1>
+        <div>hey there partner!</div>
+        <div>
+            <div>
+                <h3>Most Liked Categories</h3>
+            </div>
+            {% if categories %}
+        <ul>
+            {% for category in categories %}
+
+            <li>
+                <a href="/rango/category/{{ category.slug }}">{{ category.name}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+     {% else %}
+            <strong> There are no categories present. </strong>
+        {% endif %}
+        </div>
+
+        <div>
+             <h3>Most Viewed Pages </h3>
+            {% if pages %}
+                <ul>
+                    {% for page in pages %}
+                        <li><a href="{{ page.url }}">{{ page.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>No Pages currently in category. </strong>
+            {% endif %}
+        </div>
+
+
+
+        <img src ="{% static "images/rango.jpg" %}"
+                alt="Picture of Rango" />
+
+
+{% endblock %}
+
+
+
+
+<!--- Before Chapter 8 Changes
 <!DOCTYPE html>
 
-{% load staticfiles %} <!-- New Line-->
+{% load staticfiles %}
 
 <html lang="en">
 <head>
@@ -16,7 +69,7 @@
     <div> {% if categories %}
     <ul>
         {% for category in categories %}
-        <!------------Following line changed to add an HTML hyperlink-------->
+
 
             <li>
                 <a href="/rango/category/{{ category.slug }}">{{ category.name}}</a>
@@ -49,7 +102,8 @@
     <div>
         <a href = "/rango/about">About Rango</a><br />
         <img src ="{% static "images/rango.jpg" %}"
-                alt="Picture of Rango" /> <!---New Line--->
+                alt="Picture of Rango" />
     </div>
 </body>
 </html>
+------>
