@@ -62,15 +62,24 @@ def index(request):
 
 #Create a new view method called about which return the below Http response
 def about(request):
+    visitor_cookie_handler(request)
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
         request.session.delete_test_cookie()
+
     #print out whether the method is GET or a POST
     print(request.method)
     #print out the user name, if no one is logged in it prints 'AnonymousUser'
     print(request.user)
-    return render(request, 'rango/about.html', {})
-    #return HttpResponse('Rango says here is the about page <a href="/rango/">Index</a')
+
+    context_dict={}
+    context_dict['visits'] = request.session.get('visits',0)
+
+
+    response = render(request, 'rango/about.html', context_dict)
+
+    return response
+
 
 def show_category(request, category_name_slug):
     #create a context dictionary which we can pass
