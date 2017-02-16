@@ -255,11 +255,11 @@ def user_login(request):
             else:
                 #No context variables to pass to the template system, hence the
                 #blank dictionary object..
-                return render(request, 'rango/Login.html', {})
+                return render(request, 'rango/login.html', {})
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 #Use the login_required() decorator to ensure only those loggin can acces the view
 @login_required
